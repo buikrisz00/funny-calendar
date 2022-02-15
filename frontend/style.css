@@ -47,24 +47,156 @@ section {
     min-height: 100vh;
 }
 
+section:nth-child(2n) {
+    background-color: #3d3a39;
+}
+
+section:nth-child(2n) .card {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 180px;
+    height: 180px;
+    border: 6px solid #dbae84;
+    border-radius: 50%;
+    background-color: #3d3a39;
+    color: #dbae84;
+    cursor: pointer;
+    transition: 4s;
+}
+
+section:nth-child(2n-1) {
+    background-color: #dbae84;
+}
+
+section:nth-child(2n-1) .card {
+    width: 180px;
+    height: 180px;
+    border: 10px solid #3d3a39;
+    border-radius: 50%;
+    background-color: #dbae84;
+    color: #3d3a39;
+    cursor: pointer;
+    transition: 4s;
+}
+
+section .card time{
+    font-family: 'Great Vibes', cursive;
+}
+
+section .card time:nth-child(1), section:nth-child(2n) .card time:nth-child(2){
+    font-size: 25px;
+}
+
+section .card time:nth-child(3){
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 45px;
+}
+
+
 .gridSection {
     display: grid;
 }
 
+/* Flex sections start */
+
 .flexSection {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
 }
 
-.flexSection .card {
-    width: 300px;
-    height: 300px;
-    text-align: center;
-    background-color: rgb(163, 223, 203);
-    border: 1px solid #000;
+/* February */
+
+#february {
+    justify-content: space-between;
+    align-items: center;
 }
+
+#february .card {
+    margin: 0 20px;
+}
+
+#february .hide {
+    width: 150px;
+    height: 150px;
+    font-size: 0px;
+}
+
+#february .hide time:nth-child(n) {
+    transition: 2s;
+    font-size: 10px;
+}
+
+/* April */
+
+#april .card {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#april .flip {
+    transform: rotateY(1800deg);
+}
+
+/* June */
+
+#june {
+    flex-direction: column;
+    max-height: 100vh;
+}
+
+#june .card {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#june .colorChange {
+    border: 1px solid #3d3a39;
+    background-color: #f5ebe3;
+}
+
+#june .colorChange .xmark{
+    transition: 4s;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+}
+
+#june .colorChange time {
+    color: #3d3a39;
+}
+
+/* August */
+
+#august .card {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#august .augChange {
+    background-color: #f5ebe3;
+    border: 10px solid #1b1716;
+}
+
+#august .augChange time{
+    transition: 4s;
+    color: #1b1716;
+}
+
+/* Flex sections end */
 
 
 .blockSection {

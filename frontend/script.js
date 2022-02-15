@@ -96,9 +96,65 @@ function loadEvent() {
         }
     }
 
-    
+    // February click
+    function clickFeb(event) {
+        let clickedItem = event.target;
+        if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
+            clickedItem.classList.add("hide");
+        } else {
+            clickedItem.classList.remove("hide");
+        }
+    }
 
+    let cards = document.querySelectorAll("#february div.card");
+    console.log(cards);
+    for (const card of cards) {
+        card.addEventListener("click", clickFeb)
+    }
 
+    // April click
+    function clickApr(event) {
+        let clickedItem = event.target;
+        if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
+            clickedItem.classList.add("flip");
+        } else {
+            clickedItem.classList.remove("flip");
+        }
+    }
+
+    let aprilCards = document.querySelectorAll("#april div.card");
+    for (const card of aprilCards) {
+        card.addEventListener("click", clickApr)
+    }
+
+    // June click
+    function clickJun(event) {
+        let clickedItem = event.target;
+        if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
+            clickedItem.classList.add("colorChange");
+            clickedItem.insertAdjacentHTML("afterbegin", "<p class='xmark'>&#10060;</p>")
+        }
+    }
+
+    let juneCards = document.querySelectorAll("#june div.card");
+    for (const card of juneCards) {
+        card.addEventListener("click", clickJun)
+    }
+
+    // August click
+    function clickAug(event) {
+        let clickedItem = event.target;
+        if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
+            clickedItem.classList.add("augChange");
+        } else {
+            clickedItem.classList.remove("augChange");
+        }
+    }
+
+    let augustCards = document.querySelectorAll("#august div.card");
+    for (const card of augustCards) {
+        card.addEventListener("click", clickAug)
+    }
 
 }
 
