@@ -63,15 +63,18 @@ function loadEvent() {
             "style": "blockSection"
         }
     ]
-       
     for (const month of months) {
         let year = 2022;
         rootDiv.insertAdjacentHTML("beforeend", `<section id="${month.name}" class="${month.style}"></section>`);
         let section = document.getElementById(month.name);
+        section.insertAdjacentHTML("afterbegin", `<div class="${month.name}OuterDiv"></div>`);
+        let outerDiv = document.querySelector(`.${month.name}OuterDiv`);
+
         let monthUpper = month.name.charAt(0).toUpperCase() + month.name.slice(1);
+
         if (month.days === 31) {
             for (let i = 0; i < 31; i++) {
-                section.insertAdjacentHTML("beforeend", `<div class="card">
+                outerDiv.insertAdjacentHTML("beforeend", `<div class="card">
                                                         <time datetime="YYYY">${year}</time>
                                                         <time datetime="MM">${monthUpper}</time>
                                                         <time datetime="DD">${i+1}</time>
@@ -79,7 +82,7 @@ function loadEvent() {
             }
         } else if (month.days === 30) {
             for (let i = 0; i < 30; i++) {
-                section.insertAdjacentHTML("beforeend", `<div class="card">
+                outerDiv.insertAdjacentHTML("beforeend", `<div class="card">
                                                         <time datetime="YYYY">${year}</time>
                                                         <time datetime="MM">${monthUpper}</time>
                                                         <time datetime="DD">${i+1}</time>
@@ -87,7 +90,7 @@ function loadEvent() {
             }
         } else {
             for (let i = 0; i < 28; i++) {
-                section.insertAdjacentHTML("beforeend", `<div class="card">
+                outerDiv.insertAdjacentHTML("beforeend", `<div class="card">
                                                         <time datetime="YYYY">${year}</time>
                                                         <time datetime="MM">${monthUpper}</time>
                                                         <time datetime="DD">${i+1}</time>
@@ -96,20 +99,49 @@ function loadEvent() {
         }
     }
 
+    // January click
+    function clickJan(event) {
+        let clickedItem = event.target;
+        if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
+            clickedItem.classList.add("janChange");
+        } else {
+            clickedItem.classList.remove("janChange");
+        }
+    }
+
+    let janCards = document.querySelectorAll("#january div.card");
+    for (const card of janCards) {
+        card.addEventListener("click", clickJan)
+    }
+
     // February click
     function clickFeb(event) {
         let clickedItem = event.target;
         if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
-            clickedItem.classList.add("hide");
+            clickedItem.classList.add("shrink");
         } else {
-            clickedItem.classList.remove("hide");
+            clickedItem.classList.remove("shrink");
         }
     }
 
     let cards = document.querySelectorAll("#february div.card");
-    console.log(cards);
     for (const card of cards) {
         card.addEventListener("click", clickFeb)
+    }
+
+    // March click
+    function clickMar(event) {
+        let clickedItem = event.target;
+        if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
+            clickedItem.classList.add("marChange");
+        } else {
+            clickedItem.classList.remove("marChange");
+        }
+    }
+
+    let marchCards = document.querySelectorAll("#march div.card");
+    for (const card of marchCards) {
+        card.addEventListener("click", clickMar)
     }
 
     // April click
@@ -127,11 +159,26 @@ function loadEvent() {
         card.addEventListener("click", clickApr)
     }
 
+    // May click
+    function clickMay(event) {
+        let clickedItem = event.target;
+        if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
+            clickedItem.classList.add("mayChange");
+        } else {
+            clickedItem.classList.remove("mayChange");
+        }
+    }
+
+    let mayCards = document.querySelectorAll("#may div.card");
+    for (const card of mayCards) {
+        card.addEventListener("click", clickMay)
+    }
+
     // June click
     function clickJun(event) {
         let clickedItem = event.target;
         if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
-            clickedItem.classList.add("colorChange");
+            clickedItem.classList.add("bigX");
             clickedItem.insertAdjacentHTML("afterbegin", "<p class='xmark'>&#10060;</p>")
         }
     }
@@ -139,6 +186,21 @@ function loadEvent() {
     let juneCards = document.querySelectorAll("#june div.card");
     for (const card of juneCards) {
         card.addEventListener("click", clickJun)
+    }
+
+    // July click
+    function clickJuly(event) {
+        let clickedItem = event.target;
+        if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
+            clickedItem.classList.add("julyChange");
+        } else {
+            clickedItem.classList.remove("julyChange");
+        }
+    }
+
+    let julyCards = document.querySelectorAll("#july div.card");
+    for (const card of julyCards) {
+        card.addEventListener("click", clickJuly)
     }
 
     // August click
@@ -154,6 +216,66 @@ function loadEvent() {
     let augustCards = document.querySelectorAll("#august div.card");
     for (const card of augustCards) {
         card.addEventListener("click", clickAug)
+    }
+
+    // September click
+    function clickSep(event) {
+        let clickedItem = event.target;
+        if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
+            clickedItem.classList.add("sepChange");
+        } else {
+            clickedItem.classList.remove("sepChange");
+        }
+    }
+
+    let septemberCards = document.querySelectorAll("#september div.card");
+    for (const card of septemberCards) {
+        card.addEventListener("click", clickSep)
+    }
+
+    // October click
+    function clickOct(event) {
+        let clickedItem = event.target;
+        if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
+            clickedItem.classList.add("octChange");
+        } else {
+            clickedItem.classList.remove("octChange");
+        }
+    }
+
+    let octoberCards = document.querySelectorAll("#october div.card");
+    for (const card of octoberCards) {
+        card.addEventListener("click", clickOct)
+    }
+
+    // November click
+    function clickNov(event) {
+        let clickedItem = event.target;
+        if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
+            clickedItem.classList.add("novChange");
+        } else {
+            clickedItem.classList.remove("novChange");
+        }
+    }
+
+    let novemberCards = document.querySelectorAll("#november div.card");
+    for (const card of novemberCards) {
+        card.addEventListener("click", clickNov)
+    }
+
+    // December click
+    function clickDec(event) {
+        let clickedItem = event.target;
+        if (clickedItem.classList[0] === "card" && clickedItem.classList.length === 1) {
+            clickedItem.classList.add("decChange");
+        } else {
+            clickedItem.classList.remove("decChange");
+        }
+    }
+
+    let decemberCards = document.querySelectorAll("#december div.card");
+    for (const card of decemberCards) {
+        card.addEventListener("click", clickDec)
     }
 
 }
